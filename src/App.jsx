@@ -4,62 +4,370 @@ import React, { useState } from "react";
 const schemesData = [
   {
     id: 1,
-    name_en: "PM Mudra Yojana",
-    name_mr: "पीएम मुद्रा योजना",
-    eligibility: "Small businesses, artisans",
-    benefits: "Loan up to ₹10 lakhs",
-    applyLink: "#",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    name_en: "PMEGP (Prime Minister Employment Generation Programme)",
+    name_mr: "प्रधानमंत्री रोजगार निर्मिती कार्यक्रम (PMEGP)",
+    eligibility: "Rural entrepreneurs aged 18+, new manufacturing/service units",
+    benefits: "Subsidy 15%–35% depending on category & area",
+    applyLink: "https://www.kviconline.gov.in/pmegpeportal/jsp/pmegponline.jsp",
+    videoUrl: "https://www.youtube.com/embed/L4G2sSu2Ce8" 
   },
   {
     id: 2,
-    name_en: "Stand-Up India",
-    name_mr: "स्टँड-अप इंडिया",
-    eligibility: "SC/ST/Women entrepreneurs",
-    benefits: "₹10 lakh to ₹1 crore loan",
-    applyLink: "#",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    name_en: "Deen Dayal Upadhyaya Grameen Kaushalya Yojana (DDU-GKY)",
+    name_mr: "दीनदयाळ उपाध्याय ग्रामीण कौशल्य योजना",
+    eligibility: "18–35 years rural youth",
+    benefits: "Free skill development + job placement",
+    applyLink: "https://ddugky.gov.in/",
+    videoUrl: "https://www.youtube.com/embed/0QzTeWY5sdY"
   },
   {
     id: 3,
-    name_en: "PMEGP Scheme",
-    name_mr: "पीएमईजीपी योजना",
-    eligibility: "New entrepreneurs",
-    benefits: "15-35% subsidy on projects",
-    applyLink: "#",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    name_en: "PM Formalisation of Micro Food Processing Enterprises (PMFME)",
+    name_mr: "पीएम औपचारिक मायक्रो फूड प्रोसेसिंग योजना",
+    eligibility: "Rural micro food processing entrepreneurs, SHGs",
+    benefits: "35% capital subsidy up to ₹10 lakh",
+    applyLink: "https://www.pmfme.mofpi.gov.in",
+    videoUrl: "https://www.youtube.com/embed/FGn1OxwAnbc"
+  },
+  {
+    id: 4,
+    name_en: "National Rural Livelihood Mission (NRLM)",
+    name_mr: "राष्ट्रीय ग्रामीण आजीविका अभियान",
+    eligibility: "Rural women SHGs",
+    benefits: "Revolving fund, capital subsidy, enterprise support",
+    applyLink: "https://aajeevika.gov.in",
+    videoUrl: "https://www.youtube.com/embed/4g_E_HdaX7c"
+  },
+  {
+    id: 5,
+    name_en: "Stand-Up India",
+    name_mr: "स्टँड-अप इंडिया",
+    eligibility: "SC/ST/Women rural entrepreneurs",
+    benefits: "Loan ₹10 lakh–₹1 crore",
+    applyLink: "https://www.standupmitra.in",
+    videoUrl: "https://www.youtube.com/embed/k8P1sZ_AnPg"
+  },
+  {
+    id: 6,
+    name_en: "Mudra Yojana – Shishu/Kishor/Tarun",
+    name_mr: "मुद्रा योजना – शिशु/किशोर/तरुण",
+    eligibility: "Small rural businesses",
+    benefits: "Loan up to ₹10 lakh",
+    applyLink: "https://www.mudra.org.in",
+    videoUrl: "https://www.youtube.com/embed/6KpU2QFYu88"
+  },
+  {
+    id: 7,
+    name_en: "NABARD Rural Entrepreneurship Development Programme (REDP)",
+    name_mr: "नाबार्ड ग्रामीण उद्यम विकास कार्यक्रम",
+    eligibility: "Rural youth & farmers",
+    benefits: "Free training + credit support",
+    applyLink: "https://www.nabard.org",
+    videoUrl: "https://www.youtube.com/embed/loRbbQX3Xj0"
+  },
+  {
+    id: 8,
+    name_en: "ASPIRE Scheme (MSME Incubation for Rural Innovation)",
+    name_mr: "अस्पायर योजना – ग्रामीण नवकल्पना व उद्यम",
+    eligibility: "Rural startups, agri-tech entrepreneurs",
+    benefits: "Funding through incubation centres",
+    applyLink: "https://msme.gov.in/aspire",
+    videoUrl: "https://www.youtube.com/embed/1M1OdhtNpXI"
+  },
+  {
+    id: 9,
+    name_en: "RSETI – Rural Self Employment Training Institutes",
+    name_mr: "ग्रामीण स्व-रोजगार प्रशिक्षण संस्था",
+    eligibility: "Rural unemployed youth",
+    benefits: "Free skill training + business support",
+    applyLink: "https://www.nirdpr.org.in/rseti/",
+    videoUrl: "https://www.youtube.com/embed/jW-KeCmvYUI"
+  },
+  {
+    id: 10,
+    name_en: "SFURTI – Scheme of Fund for Regeneration of Traditional Industries",
+    name_mr: "परंपरागत उद्योगांसाठी निधी योजना (SFURTI)",
+    eligibility: "Rural artisans, craft clusters",
+    benefits: "Common facility centers, marketing support",
+    applyLink: "https://sfurti.msme.gov.in",
+    videoUrl: "https://www.youtube.com/embed/HZ4q6fiX-Zc"
+  },
+  {
+    id: 11,
+    name_en: "PM-KUSUM Solar Entrepreneurship Scheme",
+    name_mr: "पीएम-कुसुम सोलर उद्यम योजना",
+    eligibility: "Farmers & rural solar entrepreneurs",
+    benefits: "Subsidy for solar pumps & small businesses",
+    applyLink: "https://mnre.gov.in",
+    videoUrl: "https://www.youtube.com/embed/yBXX2eVH54c"
+  },
+  {
+    id: 12,
+    name_en: "AGMARKNET & e-NAM Rural Agri Market Scheme",
+    name_mr: "ई-नाम ग्रामीण कृषी बाजार योजना",
+    eligibility: "Farmers, agri entrepreneurs",
+    benefits: "Online trading + better prices",
+    applyLink: "https://www.enam.gov.in",
+    videoUrl: "https://www.youtube.com/embed/s9l7Jgp7waQ"
+  },
+  {
+    id: 13,
+    name_en: "PM Van Dhan Vikas Yojana",
+    name_mr: "पीएम वन धन विकास योजना",
+    eligibility: "Tribal rural entrepreneurs",
+    benefits: "Skill training + marketing for forest products",
+    applyLink: "https://tribal.nic.in",
+    videoUrl: "https://www.youtube.com/embed/MWc3fQnF2Ls"
+  },
+  {
+    id: 14,
+    name_en: "DAY-NRLM Start-up Village Entrepreneurship Programme (SVEP)",
+    name_mr: "स्टार्टअप व्हिलेज उद्यम कार्यक्रम",
+    eligibility: "Women in SHGs, rural youth",
+    benefits: "Funding + mentoring",
+    applyLink: "https://aajeevika.gov.in/en/content/svep",
+    videoUrl: "https://www.youtube.com/embed/MuQ2ZPQZnIc"
+  },
+  {
+    id: 15,
+    name_en: "MGNREGA – Rural Livelihood Entrepreneurship Support",
+    name_mr: "मनरेगा ग्रामीण उद्यम समर्थन",
+    eligibility: "Rural poor families",
+    benefits: "Livelihood assets + small enterprise support",
+    applyLink: "https://nrega.nic.in",
+    videoUrl: "https://www.youtube.com/embed/ORCWlj-F2lY"
+  },
+  {
+    id: 16,
+    name_en: "Dairy Entrepreneurship Development Scheme (DEDS)",
+    name_mr: "दुग्ध उद्योजकता विकास योजना",
+    eligibility: "Dairy farmers & rural women",
+    benefits: "Subsidy up to 33%",
+    applyLink: "https://www.nabard.org",
+    videoUrl: "https://www.youtube.com/embed/7aFq6QdRf2A"
+  },
+  {
+    id: 17,
+    name_en: "KVIC Honey Mission",
+    name_mr: "खादी मध मिशन",
+    eligibility: "Rural beekeepers",
+    benefits: "Free beekeeping boxes + training",
+    applyLink: "https://www.kvic.gov.in",
+    videoUrl: "https://www.youtube.com/embed/IM0fEnTZz8g"
+  },
+  {
+    id: 18,
+    name_en: "PM Fisheries Entrepreneurship Scheme (PMMSY)",
+    name_mr: "पीएम मत्स्य संपदा योजना",
+    eligibility: "Fish farmers & rural entrepreneurs",
+    benefits: "Subsidy up to 60%",
+    applyLink: "https://pmmsy.dof.gov.in",
+    videoUrl: "https://www.youtube.com/embed/W7Ji9iYJfzw"
+  },
+  {
+    id: 19,
+    name_en: "Goatery & Poultry Rural Entrepreneurship Scheme",
+    name_mr: "बकरीपालन व कुक्कुटपालन उद्यम योजना",
+    eligibility: "Rural farmers & women",
+    benefits: "Bank loan + subsidy through NABARD",
+    applyLink: "https://www.nabard.org",
+    videoUrl: "https://www.youtube.com/embed/oR942pJLwTE"
+  },
+  {
+    id: 20,
+    name_en: "Rural MSME Credit Guarantee Fund Trust (CGTMSE)",
+    name_mr: "ग्रामीण MSME कर्ज हमी निधी",
+    eligibility: "Micro rural entrepreneurs",
+    benefits: "Collateral-free loan up to ₹2 crore",
+    applyLink: "https://www.cgtmse.in",
+    videoUrl: "https://www.youtube.com/embed/HZvQOXT9u3U"
   }
 ];
+
 
 const toolsData = [
   {
     id: 1,
     name_en: "UPI Payments",
     name_mr: "यूपीआय पेमेंट्स",
-    description_en: "Accept payments through Google Pay, PhonePe",
-    description_mr: "गूगल पे, फोनपे द्वारे पेमेंट घ्या",
-    benefit_en: "Fast, cashless transactions",
-    benefit_mr: "जलद, कॅशलेस व्यवहार"
+    description_en: "Accept instant payments via Google Pay, PhonePe, BHIM UPI apps",
+    description_mr: "Google Pay, PhonePe, BHIM यांसारख्या यूपीआय अ‍ॅपद्वारे त्वरित पेमेंट स्वीकारा",
+    benefit_en: "Fast, cashless, low-cost transactions",
+    benefit_mr: "जलद, कॅशलेस आणि कमी खर्चातील व्यवहार"
   },
   {
     id: 2,
     name_en: "WhatsApp Business",
     name_mr: "व्हॉट्सअ‍ॅप बिझनेस",
-    description_en: "Manage customer communication easily",
-    description_mr: "ग्राहकांशी सहज संवाद साधा",
-    benefit_en: "Build customer trust",
-    benefit_mr: "ग्राहक विश्वास वाढवा"
+    description_en: "Chat, catalog and quick replies to manage customer communication",
+    description_mr: "ग्राहक संवादासाठी चॅट, कॅटलॉग आणि जलद उत्तरांचा वापर करा",
+    benefit_en: "Simple customer contact, order taking and support",
+    benefit_mr: "सोपे ग्राहक संपर्क, ऑर्डर घेणे आणि समर्थन"
   },
   {
     id: 3,
     name_en: "Google My Business",
     name_mr: "गूगल माय बिझनेस",
-    description_en: "List your business on Google Maps",
-    description_mr: "गूगल मॅपवर तुमचा व्यवसाय नोंदवा",
-    benefit_en: "More local visibility",
-    benefit_mr: "अधिक स्थानिक दृश्यता"
+    description_en: "List local business on Google Search & Maps to improve discoverability",
+    description_mr: "गूगल सर्च व मॅपवर व्यवसाय नोंदवा — अधिक दृश्यमानता मिळवा",
+    benefit_en: "Free visibility and customer leads",
+    benefit_mr: "मुक्त दृश्यता आणि ग्राहक लीड्स"
+  },
+  {
+    id: 4,
+    name_en: "Facebook & Instagram Business",
+    name_mr: "फेसबुक व इन्स्टाग्राम बिझनेस",
+    description_en: "Create posts, stories and ads to reach local customers",
+    description_mr: "पोस्ट, स्टोरी आणि जाहिरातीद्वारे स्थानिक ग्राहकांपर्यंत पोहोचा",
+    benefit_en: "Affordable local advertising and audience targeting",
+    benefit_mr: "परवडणारे स्थानिक जाहिराती व लक्ष्यीकरण"
+  },
+  {
+    id: 5,
+    name_en: "YouTube Channel",
+    name_mr: "यूट्यूब चॅनल",
+    description_en: "Upload product demos, how-tos and testimonials to build trust",
+    description_mr: "उत्पादन डेमो, कसे-करावे आणि ग्राहक बोलणे यांचा व्हिडिओ अपलोड करा",
+    benefit_en: "Long-form engagement and search visibility",
+    benefit_mr: "दीर्घकालीन व्यस्तता व शोध दृश्यता"
+  },
+  {
+    id: 6,
+    name_en: "Google Forms & Sheets",
+    name_mr: "Google Forms व Sheets",
+    description_en: "Simple tools for order forms, customer lists and inventory tracking",
+    description_mr: "ऑर्डर फॉर्म, ग्राहक सूची व स्टॉक ट्रॅकिंगसाठी सोपे टूल्स",
+    benefit_en: "Free and easy data collection & management",
+    benefit_mr: "मुक्त व सोपी डेटा गोळा करणे व व्यवस्थापन"
+  },
+  {
+    id: 7,
+    name_en: "Paytm / Razorpay / Instamojo (Payment Gateway)",
+    name_mr: "पेमेंट गेटवे (Paytm/Razorpay/Instamojo)",
+    description_en: "Enable card, UPI and wallet payments for online orders",
+    description_mr: "ऑनलाइन ऑर्डरसाठी कार्ड, यूपीआय व वॉलेट पेमेंट सक्षम करा",
+    benefit_en: "Secure online payments and settlement",
+    benefit_mr: "सुरक्षित ऑनलाइन पेमेंट व रकमाचे निष्पादन"
+  },
+  {
+    id: 8,
+    name_en: "Phone-based POS Apps",
+    name_mr: "फोन-आधारित POS अ‍ॅप्स",
+    description_en: "Turn smartphone into billing & invoicing terminal",
+    description_mr: "स्मार्टफोनद्वारे बिलिंग व चलनव्यवहार करा",
+    benefit_en: "Low-cost sales tracking and receipts",
+    benefit_mr: "कमी खर्चातील विक्री ट्रॅकिंग व पावत्या"
+  },
+  {
+    id: 9,
+    name_en: "WhatsApp Catalog + Payment Links",
+    name_mr: "व्हॉट्सअ‍ॅप कॅटलॉग + पेमेंट लिंक्स",
+    description_en: "Show product catalog and send payment links directly in chat",
+    description_mr: "उत्पादन कॅटलॉग दाखवा व पेमेंट लिंक थेट चॅटमध्ये पाठवा",
+    benefit_en: "Smooth order-to-payment flow",
+    benefit_mr: "सुलभ ऑर्डर-ते-पेमेंट प्रवाह"
+  },
+  {
+    id: 10,
+    name_en: "Local eCommerce Marketplaces",
+    name_mr: "स्थानिक ई-कॉमर्स मार्केटप्लेस",
+    description_en: "List products on regional marketplaces and agri platforms",
+    description_mr: "प्रादेशिक मार्केटप्लेस व कृषी प्लॅटफॉर्मवर उत्पादन नोंदवा",
+    benefit_en: "Wider market access without heavy tech",
+    benefit_mr: "भारी तंत्रज्ञानांशिवाय विस्तृत बाजार प्रवेश"
+  },
+  {
+    id: 11,
+    name_en: "Farm-to-Consumer Platforms (e-NAM / Local Aggregators)",
+    name_mr: "शेतकरी-ते-ग्राहक प्लॅटफॉर्म (e-NAM/अ‍ॅग्रिगेटर्स)",
+    description_en: "Sell produce directly to buyers through aggregator platforms",
+    description_mr: "अ‍ॅग्रिगेटर प्लॅटफॉर्मद्वारे थेट खरेदीदारांना विक्री करा",
+    benefit_en: "Better price discovery and reduced middlemen",
+    benefit_mr: "उत्तम किमती व मध्यम्यांची कमी"
+  },
+  {
+    id: 12,
+    name_en: "Basic Inventory Apps",
+    name_mr: "मूळ इन्व्हेंटरी अ‍ॅप्स",
+    description_en: "Track stock levels, reorder alerts and product variants",
+    description_mr: "स्टॉक पातळी, पुनर्निर्देशन सूचना व उत्पादन प्रकार ट्रॅक करा",
+    benefit_en: "Prevent stockouts and improve fulfilment",
+    benefit_mr: "स्टॉकआउट टाळा व पूर्ती सुधारित करा"
+  },
+  {
+    id: 13,
+    name_en: "Simple Accounting Apps (GST-ready)",
+    name_mr: "सोपे अकाउंटिंग अ‍ॅप (GST-योग्य)",
+    description_en: "Record sales, expenses and generate basic GST invoices",
+    description_mr: "विक्री, खर्च नोंदवा व GST इनवॉइस तयार करा",
+    benefit_en: "Tax compliance and financial clarity",
+    benefit_mr: "कर पालन व आर्थिक स्पष्टता"
+  },
+  {
+    id: 14,
+    name_en: "SMS & IVR Customer Alerts",
+    name_mr: "SMS व IVR ग्राहक सूचना",
+    description_en: "Automated order confirmations and delivery updates via SMS/IVR",
+    description_mr: "SMS/IVR द्वारे ऑटोमेटेड ऑर्डर पुष्टी व डिलिव्हरी अपडेट",
+    benefit_en: "Improves customer trust and reduces calls",
+    benefit_mr: "ग्राहक विश्वास वाढवतो व कॉल कमी करतो"
+  },
+  {
+    id: 15,
+    name_en: "Local Language Content Tools",
+    name_mr: "स्थानिक भाषेतील कंटेंट टूल्स",
+    description_en: "Create marketing materials in Marathi and other local languages",
+    description_mr: "मराठी व स्थानिक भाषांमध्ये मार्केटिंग साहित्य तयार करा",
+    benefit_en: "Better connection with local customers",
+    benefit_mr: "स्थानिक ग्राहकांशी चांगला जोड"
+  },
+  {
+    id: 16,
+    name_en: "Farmer Producer Organization Platforms (FPO Tools)",
+    name_mr: "शेतकरी उत्पादक संघटन (FPO) टूल्स",
+    description_en: "Tools to manage group procurement, sales and aggregation",
+    description_mr: "गट खरेदी, विक्री व एकत्रीकरण व्यवस्थापित करण्यासाठी टूल्स",
+    benefit_en: "Collective bargaining and scale benefits",
+    benefit_mr: "सामूहिक वाटाघाट व प्रमाण फायदे"
+  },
+  {
+    id: 17,
+    name_en: "Micro-Insurance Enrollment Tools",
+    name_mr: "सूक्ष्म-विमा नावनोंदणी टूल्स",
+    description_en: "Enroll rural customers in crop, livestock and health micro-insurance",
+    description_mr: "कृषी, पशुपालन व आरोग्य सूक्ष्म-विम्यांमध्ये नावनोंदणी करा",
+    benefit_en: "Risk protection for small entrepreneurs",
+    benefit_mr: "लहान उद्योजकांसाठी जोखीम संरक्षण"
+  },
+  {
+    id: 18,
+    name_en: "Simple E-invoicing & QR Billing",
+    name_mr: "ई-इनवॉइसिंग व QR बिलिंग",
+    description_en: "Generate QR-based receipts and e-invoices to ease payments",
+    description_mr: "पेमेंट सुलभ करण्यासाठी QR पावती व ई-इनवॉइस तयार करा",
+    benefit_en: "Professional receipts and faster reconciliation",
+    benefit_mr: "व्यावसायिक पावत्या व वेगवान समर्पण"
+  },
+  {
+    id: 19,
+    name_en: "Local Logistics & Last-mile Apps",
+    name_mr: "स्थानिक लॉजिस्टिक्स व लास्ट-माइल अ‍ॅप्स",
+    description_en: "Connect to affordable transport for product delivery",
+    description_mr: "उत्पादन वितरणासाठी परवडणारे वाहतूक जोडणी",
+    benefit_en: "Reduced delivery costs and better coverage",
+    benefit_mr: "कमी वितरण खर्च व चांगले कव्हरेज"
+  },
+  {
+    id: 20,
+    name_en: "Government e-Services & eKYC Tools",
+    name_mr: "शासन ई-सेवा व eKYC टूल्स",
+    description_en: "Access to digital IDs, subsidy portals and online registrations",
+    description_mr: "डिजिटल आयडी, सब्सिडी पोर्टल व ऑनलाइन नोंदणी उपलब्ध करा",
+    benefit_en: "Simplifies application for schemes and subsidies",
+    benefit_mr: "योजना व सब्सिडीसाठी अर्ज सोपे करते"
   }
 ];
+
 
 // Featured videos for home page
 const homeVideos = [
